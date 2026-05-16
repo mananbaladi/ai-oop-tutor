@@ -1,18 +1,11 @@
-notepad C:\Users\HP\Desktop\ai_oop_tutor\requirements.txt
-"""
-gemini_client.py
-Handles all communication with the Gemini API with streaming support.
-"""
-
 import os
 import time
 from dotenv import load_dotenv
-import google.generativeai as genai
 
 load_dotenv()
 
-
 def ask_gemini(prompt: str, chat_history: list = None) -> str:
+    import google.generativeai as genai
     api_key = os.getenv("GEMINI_API_KEY")
     if not api_key:
         return "GEMINI_API_KEY not found."
@@ -30,6 +23,7 @@ def ask_gemini(prompt: str, chat_history: list = None) -> str:
 
 
 def ask_gemini_stream(prompt: str, chat_history: list = None):
+    import google.generativeai as genai
     api_key = os.getenv("GEMINI_API_KEY")
     if not api_key:
         yield "GEMINI_API_KEY not found."
